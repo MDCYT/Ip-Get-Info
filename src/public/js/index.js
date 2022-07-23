@@ -54,6 +54,10 @@ input.addEventListener('blur', () => {
 
 })
 
+input.addEventListener('focus', () => {
+  input.removeAttribute('aria-invalid')
+})
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const {
