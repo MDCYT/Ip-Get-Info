@@ -12,7 +12,7 @@ const getIPInfo = async IP => {
   //Check if ip is valid
   if (!IP) {
     return {
-      error: 'Invalid IP'
+      error: 'Please enter a IP address'
     }
   }
 
