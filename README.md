@@ -1,28 +1,25 @@
 ---
-title: ExpressJS
-description: An ExpressJS server
+title: IP Get Info
+description: An Express server with Axios.
 tags:
   - express
   - typescript
+  - axios
 ---
 
-# ExpressJS Example
+# IP Get Info
 
-This example starts an [ExpressJS](https://expressjs.com/) server.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fexamples%2Ftree%2Fmaster%2Fexamples%2Fexpressjs)
-
-## ✨ Features
-
-- Express
-- TypeScript
+Get information about a specific IP address.
 
 ## 💁‍♀️ How to use
 
 - Install dependencies `yarn`
-- Connect to your Railway project `railway link`
-- Start the development server `railway run yarn dev`
+- Put APIkey and APIHost in .env file
+- Run `yarn build`
+- Run `yarn start`
 
-## 📝 Notes
 
-The server started simply returns a `Hello: "World"` payload in JSON. The server code is located in `src/index.js`.
+## 🚀 Easy deploy
+### 🚄 Railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/_fk8ih?referralCode=mdc)
