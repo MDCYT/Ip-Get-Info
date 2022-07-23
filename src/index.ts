@@ -33,22 +33,13 @@ app.get("/", async (req, res) => {
 app.get("/api/:ip", async (req, res) => {
   const { ip } = req.params;
 
-  //Check if ip is valid
-  if (!ip) res.status(400).json({ error: "IP is required" });
-
-  //Regex to check if ip is valid
-  const regex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-
-  //Check if ip is valid
-  if (!regex.test(ip)) res.status(400).json({ error: "IP is not valid" });
-
   const ipInfo = await getIpInfo(ip);
 
   if (Object.keys(ipInfo).length === 0) {
-    res.status(404).json({ error: "IP not found" });
+    return res.status(404).json({ error: "IP not found" });
   }
 
-  res.json(ipInfo);
+  return res.json(ipInfo);
 
 });
 
