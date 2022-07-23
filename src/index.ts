@@ -5,14 +5,6 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 if (!process.env.APIKey || !process.env.APIHost) throw new Error("APIKey or APISecret not set");
 
-const OPTIONS = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': process.env.APIKey,
-    'X-RapidAPI-Host': process.env.APIHost
-  }
-};
-
 const app = express();
 const port = process.env.PORT || 3333;
 
@@ -26,7 +18,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 const getIpInfo = async (ip: string) => {
-  const response = await axios.get(`https://${process.env.APIHost}/${ip}`, OPTIONS)
+  const response = await axios.get(`https://${process.env.APIHost}/${ip}?key=${process.env.APIKey}`)
   .then(res => res.data)
   .catch(err => {
     return { error: err.message };
