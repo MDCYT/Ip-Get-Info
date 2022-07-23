@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc && ts-node tools/copyAssets.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/src/index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
