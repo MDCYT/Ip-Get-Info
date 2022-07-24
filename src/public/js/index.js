@@ -76,10 +76,7 @@ form.addEventListener('submit', async (event) => {
     input.setAttribute('aria-invalid', 'true')
     submit.removeAttribute('disabled')
     submit.removeAttribute('aria-busy')
-    return results.innerHTML = JSON.stringify({
-      "error": "An error occurred while fetching the IP info",
-      "error_message": ipInfo.error,
-    })
+    return results.innerHTML = JSON.stringify(ipInfo, null, 2)
   }
 
   if (ipInfo) results.innerHTML = JSON.stringify(ipInfo, null, 2)

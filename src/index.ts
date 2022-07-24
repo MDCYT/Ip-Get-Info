@@ -21,7 +21,23 @@ const getIpInfo = async (ip: string) => {
   const response = await axios.get(`https://${process.env.APIHost}/${ip}?key=${process.env.APIKey}`)
   .then(res => res.data)
   .catch(err => {
-    return { error: err.message };
+    // Check status code
+    if (err.response.status === 400) {
+      return {
+        ip: ip,
+        error: "Invalid IP address or Private IP address"
+      }
+    } else if (err.response.status === 500) {
+      return {
+        ip: ip,
+        error: "Internal server error"
+      }
+    } else {
+      return {
+        ip: ip,
+        error: "Unknown error"
+      }
+    }
   })
   return response;
 }
